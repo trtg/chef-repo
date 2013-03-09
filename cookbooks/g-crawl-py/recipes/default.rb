@@ -6,6 +6,12 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+package "python-dev"#needed for Python.h when compiling hiredis
+#package "python-pip" #default action is install so this is a short form of:
+package "python-pip" do
+    action :install
+end
+
 python_pip "hiredis" do
     action :install
 end
