@@ -19,3 +19,14 @@ gem_package "active_support"
 gem_package "vegas"
 gem_package "qless"
 
+git "/home/ubuntu/qless" do
+    repository "https://github.com/trtg/qless.git"
+    reference "master"
+    action :sync
+end
+
+git "/home/ubuntu/qless-py" do
+    repository "https://github.com/trtg/qless-py.git"
+    reference "master"
+    action :sync
+end

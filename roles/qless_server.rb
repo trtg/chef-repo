@@ -1,3 +1,3 @@
 name "qless_server"
-description "Node that crawls websites and writes out page bodies to a data store"
-run_list "recipe[git]","recipe[build-essential]","recipe[qless]"
+description "Node that runs the job queue for distributing crawling and parsing tasks"
+run_list "recipe[apt]","recipe[build-essential]","recipe[git]","recipe[qless]"
