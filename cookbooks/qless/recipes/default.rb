@@ -30,3 +30,10 @@ git "/home/ubuntu/qless-py" do
     reference "master"
     action :sync
 end
+
+execute "qlessPyInstall" do
+    command "cd /home/ubuntu/qless-py/;
+    sudo python setup.py install"
+    action :run
+end
+
