@@ -3,7 +3,7 @@
 
 AMI_ID="ami-137bcf7a"
 INSTANCE_TYPE="t1.micro"
-SECURITY_GROUPS="crawler"
-RUNLIST="role[crawler]"
+SECURITY_GROUPS="redis_server"
+RUNLIST="role[qless_server]"
 
 knife ec2 server create -x ubuntu -I $AMI_ID  -f $INSTANCE_TYPE -G $SECURITY_GROUPS -r $RUNLIST

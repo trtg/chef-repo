@@ -84,7 +84,7 @@ cmd2="knife role from file roles/qless_server.rb"
 $cmd1
 $cmd2
 
-echo 'knife[:aws_ssh_key_id] = "YOUR_KEY_NAME"'>> .chef/knife.rb
+echo "knife[:aws_ssh_key_id] = $KEY_NAME">> .chef/knife.rb
 echo 'knife[:aws_access_key_id]     = "YOUR_AWS_ACCESS_KEY"'>> .chef/knife.rb
 echo 'knife[:aws_secret_access_key] = "YOUR_SECRET_KEY"'>> .chef/knife.rb
 echo 'knife[:identity_file] ="/home/your_user/.ssh/your_aws_key.pem"' >> .chef/knife.rb
