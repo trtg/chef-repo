@@ -22,7 +22,7 @@ git "/home/ubuntu/cloud_crawler" do
 end
 
 execute "crawlerInstall" do
-    command "cd /home/ubuntu/cloud_crawler/cloud_crawler;
+    command "cd /home/ubuntu/cloud_crawler/cloud-crawler;
     bundle install;gem build cloud_crawler.gemspec; gem install cloud_crawler*.gem"
     action :run
 end
