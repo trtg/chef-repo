@@ -8,6 +8,7 @@
 include_recipe 'redisio'
 include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
+package "s3cmd"
 package "ruby1.9.1"
 package "ruby1.9.1-dev"
 package "libxslt-dev"#nokogiri dependency
