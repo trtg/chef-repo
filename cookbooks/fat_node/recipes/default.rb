@@ -5,6 +5,7 @@
 # Copyright 2013, YOUR_COMPANY_NAME
 #
 # All rights reserved - Do Not Redistribute
+include_recipe 's3cmd'
 include_recipe 'redisio'
 include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
