@@ -79,8 +79,8 @@ knife configure  -i -u $USER -y -s "https://$ip_address" -k ".chef/$USER.pem"  -
 
 #upload all existing cookbooks and roles
 knife cookbook upload -a
-cmd1="knife role from file roles/crawler.rb"
-cmd2="knife role from file roles/qless_server.rb"
+cmd1="knife role from file roles/worker.rb"
+cmd2="knife role from file roles/fat_node.rb"
 $cmd1
 $cmd2
 
