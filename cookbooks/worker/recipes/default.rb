@@ -47,7 +47,7 @@ puts "starting worker using #{final_address} as the queue server"
 
 execute "runCrawler" do
     command "cd /home/ubuntu/cloud_crawler/cloud-crawler;
-    bundle exec /home/ubuntu/cloud_crawler/cloud-crawler/bin/run_worker.rb -h #{final_address}"
+    bundle exec /home/ubuntu/cloud_crawler/cloud-crawler/bin/start_batch_crawl.rb -h #{final_address} &"
     action :run
 end
 
