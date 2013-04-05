@@ -9,12 +9,15 @@ include_recipe 's3cmd'
 include_recipe 'redisio'
 include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
+
+package "libtool" #needed for nagios install
 package "ruby1.9.1"
 package "ruby1.9.1-dev"
 package "libxslt-dev"#nokogiri dependency
 package "libxml2-dev"#nokogiri dependency
 
 gem_package "bundler"
+gem_package "thin"#for running qless-web
 
 git "/home/ubuntu/cloud_crawler" do
     repository "https://github.com/charlesmartin14/cloud_crawler.git"

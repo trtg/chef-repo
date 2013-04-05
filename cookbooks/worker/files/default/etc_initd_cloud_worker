@@ -1,0 +1,70 @@
+#!/bin/sh
+# This script will launch the crawler in a mode that will automatically respawn if it
+# crashes. Output will be sent to /var/log/cloud_worker.log. A PID file will be
+# created in the standard location.
+
+start () {
+    echo -n "Starting cloud_worker..."
+
+    # Start daemon
+    daemon --chdir='/home/ubuntu/cloud_crawler/cloud-crawler/' --command "/home/ubuntu/cloud_crawler/cloud-crawler/runme.sh" --respawn --output=/var/log/cloud_worker.log --name=cloud_worker --verbose
+
+    RETVAL=$?
+    if [ $RETVAL = 0 ]
+    then
+        echo "done."
+    else
+        echo "failed. See error code for more information."
+    fi
+    return $RETVAL
+}
+
+stop () {
+    # Stop daemon
+    echo -n "Stopping cloud_worker..."
+
+    daemon --stop --name=cloud_worker  --verbose
+    RETVAL=$?
+
+ if [ $RETVAL = 0 ]
+    then
+        echo "Done."
+    else
+        echo "Failed. See error code for more information."
+    fi
+    return $RETVAL
+}
+
+
+restart () {
+    daemon --restart --name=cloud_worker  --verbose
+}
+
+
+status () {
+    # Report on the status of the daemon
+    daemon --running --verbose --name=cloud_worker
+    return $?
+}
+
+
+case "$1" in
+    start)
+        start
+    ;;
+    status)
+        status
+    ;;
+    stop)
+        stop
+    ;;
+    restart)
+        restart
+    ;;
+    *)
+        echo $"Usage: cloud_worker {start|status|stop|restart}"
+        exit 3
+    ;;
+esac
+
+exit $RETVAL
